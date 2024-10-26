@@ -8,11 +8,11 @@
 }
 
 .dateselector{
+  display: flex;
   border: 1px solid gray;
   text-align: right;
-  &::after {
-    content: '📆';
-  }
+  justify-content: space-between;
+  align-items: center;
 }
 
 .pinkcalendar {
@@ -27,4 +27,13 @@
     background-color: blue;
     border-radius: 50%;
   }
+}
+
+.button{
+  display: flex;
+  justify-content: space-around;
+}
+.button1{
+  display: flex;
+    gap: 8px;
 }

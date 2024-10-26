@@ -36,8 +36,11 @@ function SelectDay({ date, setDate }) {
         setDate(new Date(date.getFullYear(), date.getMonth(), day))
     }
   }>
+    
     <Calendar date={date} />
+   
   </div>;
+
 }
 
 function DateToYYYYMM(date) {
@@ -85,8 +88,16 @@ function Test3() {
     locale = useContext(LocaleContext),
     [date, setDate] = useState(new Date);
   return <fieldset>
-    <legend>test SelectDay</legend>
+    <legend>test SelectDay</legend> 
+    <div className={classes.button}>
     date: {date.toLocaleDateString(locale)}
+    <button onClick={()=> {
+        setDate(new Date(date.getFullYear() - 1, date.getMonth(), date.getDate()));
+    }}>↑</button>
+    <button onClick={()=> {
+        setDate(new Date(date.getFullYear() + 1, date.getMonth(), date.getDate()));
+    }}>↓</button>
+    </div>
     <hr/>
    <SelectDay date={date} setDate={setDate} />
   </fieldset >;
@@ -105,7 +116,19 @@ function Test4() {
       onClick={onClick1}
       className={classes.dateselector}
     >
-      {date.toLocaleDateString(locale)}
+    <div className={classes.button1}>
+       <button onClick={()=> {
+        setDate(new Date(date.getFullYear() - 1, date.getMonth(), date.getDate()));
+    }}>↑</button>
+       <button onClick={()=> {
+        setDate(new Date(date.getFullYear() + 1, date.getMonth(), date.getDate()));
+    }}>↓</button>
+     </div>
+     <div>
+     {date.toLocaleDateString(locale)} 
+     <span>📆</span>
+     </div>
+      
     </div>
     <div onClick={onClick2}>
       {open && <PopupWindow>
